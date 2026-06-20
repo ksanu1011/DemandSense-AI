@@ -182,4 +182,14 @@ Impact:
 - R² improved from 0.7167 to 0.9159
 
 Conclusion:
-Historical demand is one of the strongest predictors of future demand..
+Historical demand is one of the strongest predictors of future demand.## Lag Vectorization
+
+Created 24 lag features:
+
+lag_1 ... lag_24
+
+Purpose:
+
+Provide the model with the previous 24 hours of electricity demand history.
+
+This converts a sequential time series into a supervised learning tabular dataset..
