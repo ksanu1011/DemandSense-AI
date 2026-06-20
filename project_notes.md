@@ -153,4 +153,33 @@ Electricity demand is strongly correlated with recent historical demand.
 Benefits:
 - Captures short-term demand patterns.
 - Captures weekly seasonality.
-- Improves forecasting accuracy..
+- Improves forecasting accuracy.## Model Improvement Through Lag Features
+
+Baseline Model:
+
+Features:
+- hour
+- dayofweek
+- month
+- year
+
+Results:
+- MAE: 2211.65
+- R²: 0.7167
+
+Enhanced Model:
+
+Additional Features:
+- lag_24
+- lag_168
+
+Results:
+- MAE: 1179.24
+- R²: 0.9159
+
+Impact:
+- MAE reduced by ~47%
+- R² improved from 0.7167 to 0.9159
+
+Conclusion:
+Historical demand is one of the strongest predictors of future demand..
