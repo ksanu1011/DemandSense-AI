@@ -354,4 +354,49 @@ Observations:
 
 - LightGBM successfully learned the residual structure.
 - Most remaining demand variation after trend removal was explained by the tree ensemble.
-- Residual forecasting accuracy was very high..
+- Residual forecasting accuracy was very high.## Hybrid Forecasting Architecture
+
+Final Prediction:
+
+Final Forecast =
+Trend Prediction +
+Residual Prediction
+
+Equation:
+
+ŷ = Trend + Residual
+
+Models Used:
+
+1. Linear Regression
+   - Captures long-term trend
+
+2. LightGBM
+   - Captures residual variation
+   - Learns seasonality and nonlinear patterns
+
+Hybrid Results:
+
+MAE:
+471.05
+
+RMSE:
+605.61
+
+R²:
+0.9910
+
+Comparison:
+
+Baseline Random Forest:
+R² = 0.7167
+
+Lag Feature Random Forest:
+R² = 0.9159
+
+Hybrid Model:
+R² = 0.9910
+
+Conclusion:
+
+Separating trend and residual components significantly improved forecasting performance..
