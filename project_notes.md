@@ -301,4 +301,34 @@ Observations:
 
 Conclusion:
 
-Trend extraction successfully separated macro demand growth from short-term demand variation..
+Trend extraction successfully separated macro demand growth from short-term demand variation.### Git Milestone
+
+Completed:
+- Data Understanding
+- Feature Engineering
+- TimeSeriesSplit Validation
+- Trend Extraction
+- Residual Dataset Preparation
+
+Status:
+Ready for Residual Model Training (LightGBM).## Week 5 - Residual Modeling
+
+Model:
+- LightGBM Regressor
+
+Target:
+- residual
+
+Purpose:
+
+Train a tree-based model on residuals after removing the macro trend.
+
+This allows the model to focus entirely on:
+- Daily seasonality
+- Weekly seasonality
+- Short-term fluctuations
+- Non-linear demand patterns
+
+Expected Result:
+
+The tree model learns the remaining structure not captured by the linear trend model..
