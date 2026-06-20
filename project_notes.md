@@ -140,4 +140,17 @@ Purpose:
 
 Evaluation Metrics:
 - MAE
-- R² Score.
+- R² Score## Lag Feature Engineering
+
+Created:
+- lag_24  -> Demand 24 hours earlier
+- lag_168 -> Demand 7 days earlier
+
+Reason:
+
+Electricity demand is strongly correlated with recent historical demand.
+
+Benefits:
+- Captures short-term demand patterns.
+- Captures weekly seasonality.
+- Improves forecasting accuracy..
