@@ -331,4 +331,27 @@ This allows the model to focus entirely on:
 
 Expected Result:
 
-The tree model learns the remaining structure not captured by the linear trend model..
+The tree model learns the remaining structure not captured by the linear trend model.## Residual Model Training
+
+Model:
+- LightGBM Regressor
+
+Training Strategy:
+- Chronological 80/20 split
+
+Target:
+- residual
+
+Results:
+
+Residual MAE:
+471.05
+
+Residual R²:
+0.9910
+
+Observations:
+
+- LightGBM successfully learned the residual structure.
+- Most remaining demand variation after trend removal was explained by the tree ensemble.
+- Residual forecasting accuracy was very high..
