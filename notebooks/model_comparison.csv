@@ -1,0 +1,4 @@
+Model,R2
+Random Forest,0.7167
+RF + Lag Features,0.9159
+Hybrid Model,0.991

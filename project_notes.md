@@ -399,4 +399,86 @@ R² = 0.9910
 
 Conclusion:
 
-Separating trend and residual components significantly improved forecasting performance..
+Separating trend and residual components significantly improved forecasting performance.## Feature Importance Analysis
+
+Top Features:
+
+1. hour
+2. lag_1
+3. month
+4. lag_24
+5. dayofweek
+
+Observations:
+
+- Time of day is the strongest predictor.
+- Recent demand history strongly influences future demand.
+- Seasonal effects remain important.
+- Weekly business cycles contribute to demand variation.## TimeSeriesSplit Cross Validation
+
+Validation Strategy:
+- 5 Fold TimeSeriesSplit
+
+Metrics:
+- MAE
+- RMSE
+- MAPE
+
+Purpose:
+
+Evaluate forecasting performance across multiple chronological windows while preventing data leakage.
+
+Result:
+
+Hybrid model maintained strong performance across all folds, demonstrating stability and generalization.## Final Cross Validation Results
+
+Validation Method:
+- 5 Fold TimeSeriesSplit
+
+Average Metrics:
+
+- MAE: 438.31 MW
+- RMSE: 580.83 MW
+- MAPE: 1.46%
+
+Fold Results:
+
+| Fold | MAE | RMSE | MAPE |
+|------|------|------|------|
+| 1 | 544.90 | 718.67 | 1.88% |
+| 2 | 437.24 | 594.69 | 1.41% |
+| 3 | 393.90 | 506.57 | 1.33% |
+| 4 | 425.91 | 530.79 | 1.43% |
+| 5 | 389.63 | 553.45 | 1.25% |
+
+Conclusion:
+
+The hybrid forecasting architecture generalized consistently across multiple chronological validation windows and maintained an average forecasting error below 1.5%.## Hybrid Forecasting Architecture
+
+PJM Energy Consumption Data
+        │
+        ▼
+Datetime Engineering
+        │
+        ▼
+Feature Engineering
+(24 Lag Features + Rolling Statistics)
+        │
+        ▼
+Linear Regression
+(Trend Extraction)
+        │
+        ▼
+Residual Calculation
+        │
+        ▼
+LightGBM Regressor
+(Residual Prediction)
+        │
+        ▼
+Hybrid Forecast
+(Trend + Residual)
+        │
+        ▼
+Evaluation
+(MAE, RMSE, MAPE).
