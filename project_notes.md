@@ -78,4 +78,66 @@ Observations:
 
 Conclusion:
 
-Electricity demand is highly seasonal and suitable for time-series forecasting..
+Electricity demand is highly seasonal and suitable for time-series forecasting..## Hourly Demand Analysis
+
+Observations:
+
+- Lowest demand occurs around 4–5 AM (~23,000 MW).
+- Demand begins increasing rapidly after 6 AM.
+- Business and residential activity drive demand growth through the morning.
+- Peak demand occurs around 6–7 PM (~33,700 MW).
+- Demand gradually declines after 9 PM.
+
+Business Insight:
+
+Hour of day is a very strong predictor of electricity demand and should be used as a feature in forecasting models## Day of Week Analysis
+
+Observations:
+
+- Demand is highest during weekdays.
+- Tuesday–Thursday show the highest average load.
+- Demand decreases on Friday.
+- Saturday and Sunday have significantly lower demand.
+
+Business Insight:
+
+Electricity consumption is strongly affected by weekly business cycles. Day of week should be included as a forecasting feature.## Monthly Seasonality Analysis
+
+Observations:
+
+- Highest demand occurs during July and August.
+- Lowest demand occurs around April.
+- Demand rises again during winter months.
+
+Business Insight:
+
+Electricity consumption follows strong seasonal patterns. Summer cooling requirements and winter heating requirements significantly affect overall load demand.
+
+Forecasting models should include month and seasonal features.## Feature Engineering
+
+Created the following features from Datetime:
+
+- hour
+- dayofweek
+- month
+- year
+
+Target Variable:
+- PJM_Load_MW
+
+These features capture:
+- Daily patterns
+- Weekly patterns
+- Seasonal patterns
+- Long-term yearly trends## Model 1 - Random Forest
+
+Model:
+- RandomForestRegressor
+
+Purpose:
+- Establish a baseline forecasting model.
+- Learn demand patterns from hour, weekday, month, and year.
+
+Evaluation Metrics:
+- MAE
+- R² Score.
