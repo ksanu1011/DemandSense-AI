@@ -231,4 +231,74 @@ Train -> Larger Past
 Test -> Next Future
 
 Result:
-Validation process now simulates real-world forecasting conditions..
+Validation process now simulates real-world forecasting conditions.## Trend Extraction Model
+
+Model:
+- Linear Regression
+
+Purpose:
+
+Tree-based models cannot extrapolate long-term trends effectively.
+
+A Linear Regression model was trained using a numerical time index to capture the macro trend in electricity demand.
+
+Output:
+- trend_prediction
+
+Residual Calculation:
+
+residual = actual_demand - trend_prediction
+
+Observations:
+
+- A slight upward long-term demand trend was observed.
+- The trend model captured structural demand growth over time.
+- Residuals retained short-term fluctuations and seasonal behavior.
+
+Purpose of Residuals:
+
+The residual component will be modeled separately using a tree-based ensemble model.### Residual Modeling Dataset Preparation
+
+Additional Features Added:
+
+Lag Features:
+- lag_1 to lag_24
+
+Rolling Features:
+- rolling_mean_24
+- rolling_std_24
+- rolling_min_24
+- rolling_max_24
+
+Calendar Features:
+- hour
+- dayofweek
+- month
+- year
+
+Target:
+- residual
+
+Final Modeling Dataset:
+- Rows: 32,872
+- Columns: 36
+
+Purpose:
+
+Prepare a feature-rich dataset for residual prediction using a tree-based ensemble model.### Residual Analysis
+
+Residual Series Generated:
+
+residual = actual_demand - trend_prediction
+
+Observations:
+
+- Long-term trend has been largely removed.
+- Residuals fluctuate around a stable level.
+- Strong seasonal and cyclical behavior remains.
+- Demand spikes are still present.
+- Residual series contains the short-term patterns that will be modeled by the tree ensemble.
+
+Conclusion:
+
+Trend extraction successfully separated macro demand growth from short-term demand variation..
